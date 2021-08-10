@@ -1,6 +1,6 @@
 # AppHomeBroker
 
-Tecnologias : Java,Spring,Jsf,Html,Css,Bootstrap,Js
+Tecnologias : Java,Spring,Jsf,Html,Css,Bootstrap,Js estruturado em mvc
 
 Trabalho feito para disciplina de web, o propósito foi fazer um sistema voltado a compra e venda de ações da bolsa de valores. dados consumidos de uma api pública.
 relatório de entradas e saidas da conta, e relatório de compras feitas.
