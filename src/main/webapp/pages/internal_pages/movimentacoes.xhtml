@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./template_internal.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="breadcrumb">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item">Conta Digital</li>
+            <li class="breadcrumb-item active">Movimentações</li>
+        </ol>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="row">
+            <div class="col-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-chart-area me-1"></i>
+                        Últimas Movimentações
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Data</th>
+                                    <th scope="col">Valor</th>
+                                    <th scope="col">Movimentação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <h:panelGroup rendered="#{movimentacaoMb.ultimas3Movimentacoes != null}">
+                                    <c:forEach var="movimento" items="#{movimentacaoMb.ultimas3Movimentacoes}">
+                                        <tr>
+                                            <th scope="row"> 
+                                                <h:outputText value="#{movimento.data}" >
+                                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                                </h:outputText> 
+                                            </th>
+                                            <td>R$ #{movimento.valor}</td>
+                                            <td>#{movimento.tipo}</td>
+                                        </tr>
+                                    </c:forEach>
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{movimentacaoMb.ultimas3Movimentacoes == null}">
+                                    <td class="text-center pt-2 mt-2" colspan="3"><strong>Não há registros a serem exibidos.</strong></td>
+                                </h:panelGroup>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Total de Depósitos e Saques Diários
+                    </div>
+                    <div class="card-body">
+                        <table class="table" id="datatablesSimple">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Tipo</th>
+                                    <th>Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <h:panelGroup rendered="#{movimentacaoMb.movimentacoesDepositoTotalDiario != null}">
+                                        <th scope="row">
+                                            <h:outputText value="#{movimentacaoMb.movimentacoesDepositoTotalDiario.data}" >
+                                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                            </h:outputText> 
+                                        </th>
+                                        <td>#{movimentacaoMb.movimentacoesDepositoTotalDiario.tipo}</td>
+                                        <td>R$ #{movimentacaoMb.movimentacoesDepositoTotalDiario.valor}</td>
+                                    </h:panelGroup>
+                                    <h:panelGroup rendered="#{movimentacaoMb.movimentacoesDepositoTotalDiario == null}">
+                                        <td class="text-center pt-2 mt-2" colspan="3"><strong>Não há registros de depósito a serem exibidos.</strong></td>
+                                    </h:panelGroup>
+                                </tr>
+                                <tr>
+                                    <h:panelGroup rendered="#{movimentacaoMb.movimentacoesSaqueTotalDiario != null}">
+                                        <th scope="row">
+                                            <h:outputText value="#{movimentacaoMb.movimentacoesSaqueTotalDiario.data}" >
+                                                <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                            </h:outputText> 
+                                        </th>
+                                        <td>#{movimentacaoMb.movimentacoesSaqueTotalDiario.tipo}</td>
+                                        <td>R$ #{movimentacaoMb.movimentacoesSaqueTotalDiario.valor}</td>
+                                    </h:panelGroup>
+                                    <h:panelGroup rendered="#{movimentacaoMb.movimentacoesSaqueTotalDiario == null}">
+                                        <td class="text-center pt-2 mt-2" colspan="3"><strong>Não há registros de saque a serem exibidos.</strong></td>
+                                    </h:panelGroup>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <i class="fas fa-table me-1"></i>
+                        Histórico de Movimentações detalhadas
+                    </div>
+                    <div class="card-body">
+                        <table class="table" id="datatablesSimple">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Tipo</th>
+                                    <th>Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <h:panelGroup rendered="#{movimentacaoMb.movimentacoesDiarias != null}">
+                                    <c:forEach var="movimentacoesdiarias" items="#{movimentacaoMb.movimentacoesDiarias}">
+                                        <tr>
+                                            <td scope="row"> 
+                                                <h:outputText value="#{movimentacoesdiarias.data}" >
+                                                    <f:convertDateTime pattern="dd/MM/yyyy"/>
+                                                </h:outputText> 
+                                            </td>
+                                            <td>#{movimentacoesdiarias.tipo}</td>
+                                            <td>R$ #{movimentacoesdiarias.valor}</td>
+                                        </tr>
+                                    </c:forEach>
+                                </h:panelGroup>
+                                <h:panelGroup rendered="#{movimentacaoMb.movimentacoesDiarias == null}">
+                                    <td class="text-center pt-2 mt-2" colspan="3"><strong>Não há registros a serem exibidos.</strong></td>
+                                </h:panelGroup>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

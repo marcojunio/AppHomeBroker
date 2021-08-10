@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./template_internal.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="breadcrumb">
+        <h1 class="mt-4"></h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item">Mercado de Ações</li>
+            <li class="breadcrumb-item ">Ações</li>
+            <li class="breadcrumb-item active">Comprar Ações</li>
+        </ol>
+    </ui:define>
+
+    <ui:define name="content">
+
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col">
+                    <div class="card bg-dark text-white">
+                        <div class="card-header">PETR4 - R$ 2,50</div>
+                        <div class="card-body">Quantidade: </div>
+                        <div class="card-footer">
+                            <div class="text-center">
+                                <input type="button" class="btn btn-warning btn-lg" value="Comprar"></input>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="card bg-primary text-white mb-4">
+                        <div class="card-body">Saldo Conta Digital</div> <!-- BackEnd LINK PARA CONTA DIGITAL -->
+                        <div class="card-footer d-flex align-items-center justify-content-between">
+                            R$ 3000,00 <!-- BackEnd -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong><i class="fas fa-exclamation-circle"></i> Alerta!</strong> Você não pode realizar essa ação.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

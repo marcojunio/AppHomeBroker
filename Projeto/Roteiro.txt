@@ -1,0 +1,24 @@
+usuario administrador
+daves
+123
+
+usuario correntista
+gabrielsampaio
+123
+
+marcosandre
+123
+
+---------------------------
+
+1- Criar um Usuário 
+2- Depositar Saldo
+3- Comprar Ação
+4- Verificar Movimentação
+5- Vender Ação
+6- Verificar Movimentação
+7- Sacar Saldo
+-- Mostrar Validações
+
+8- Entrar Usuário Corretora
+9- Verificar Movimentação

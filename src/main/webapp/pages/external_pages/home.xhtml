@@ -1,0 +1,178 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough%22%3E"
+                template="./template_external.xhtml"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="top">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-light bg-warning">
+                <div class="container">
+
+                    <a href="#" class="navbar-brand">
+                        <img src="../../img/logo.png" width="142" />
+                    </a>
+
+                    <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="nav-principal">
+                        <ul class="navbar-nav ml-auto">
+                            <!--                            <li class="nav-item">
+                                                            <a href="" class="nav-link">Home</a>
+                                                        </li>
+                                                        <li class="nav-item">
+                                                            <a href="" class="nav-link">Ações</a>
+                                                        </li>-->
+                            <h:form>
+                                <li class="nav-item">
+                                    <h:commandLink class="btn btn-outline-light ml-4" action="#{homeMB.viewLogin()}">Entrar</h:commandLink>
+                                </li>
+                            </h:form>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    </ui:define>
+
+    <ui:define name="content">
+        <section id="home">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 d-flex">
+                        <div class="align-self-center">
+                            <h1 class="display-4">Seus investimentos, descomplicados</h1>
+                            <p>
+                                Usado por mais de 1 milhão de pessoas, o HomeBroker ZPG é uma ferramenta online que vai facilitar sua vida financeira e seus investimentos
+                            </p>
+                            <h:form class="mt-4 mb-4">
+                                <div class="input-group input-group-lg">
+                                    <h:inputText class="form-control" value="#{homeMB.loginIndex}">     
+                                        <f:passThroughAttribute name="placeholder" value="Digite seu login" />
+                                    </h:inputText>
+
+                                    <div class="input-group-append">
+                                        <h:commandLink class="btn btn-primary" action="#{homeMB.viewCadastro()}">Cadastre-se</h:commandLink>
+                                    </div>
+                                </div>
+                            </h:form>
+                            <p>
+                                Disponível para
+                                <a href="" class="btn btn-outline-light">
+                                    <i class="fab fa-android fa-lg"></i>
+                                </a>
+                                <a href="" class="btn btn-outline-light">
+                                    <i class="fab fa-apple fa-lg"></i>
+                                </a>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6 d-none d-md-block">
+                        <img src="../../img/capa-mulher.png" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="caixa">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 d-flex">
+                        <div class="align-self-center">
+                            <h2>Saiba para onde vai seu dinheiro</h2>
+                            <p>
+                                Com o ZPG, você poderá ver todas as ações investidas e poderá acompanhar seu saldo bancário através da nossa conta digital
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="../../img/saiba.png" class="img-fluid" />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="caixa">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <img src="../../img/juros.png" class="img-fluid" />
+                    </div>
+                    <div class="col-md-6 d-flex">
+                        <div class="align-self-center">
+                            <h2>Pare de pagar juros e economize</h2>
+                            <p>
+                                No nosso ZPG, temos taxas baixíssimas para você poder
+                                mexer com seu investimento em ações
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="caixa">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="../../img/facil.png" class="img-fluid" />
+                        <h4>Fácil de usar</h4>
+                        <p>
+                            O ZPG vai além do básico e permite você faça controles incríveis, essenciais para seus investimentos. Simples como tem que ser.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="../../img/economize.png" class="img-fluid" />
+                        <h4>Economize seu tempo</h4>
+                        <p>
+                            Tempo é dinheiro! em segundos, você tem tudo sob controle e aproveite seu tempo com o que realmente importa para você.
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="../../img/suporte.png" class="img-fluid" />
+                        <h4>Suporte Amigo</h4>
+                        <p>
+                            Dúvidas? Perguntas? Nosso suporte super legal ajuda você! A gente está aqui para resolver seus problemas e deixar sua vida bem mais fácil! 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </ui:define>
+
+    <ui:define name="bottom">
+        <footer class="mt-4 mb-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <p>
+                            Feito por <a href="https://gitlab.com/gabriel.sampaio7">Gabriel Sampaio</a> e <a href="https://github.com/marcojunio?tab=repositories">Marcos André</a> &middot; 2021
+                        </p>
+                    </div>
+                    <div class="col-md-4 d-flex justify-content-end">
+                        <a href="" class="btn btn-outline-dark ml-2">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="" class="btn btn-outline-dark ml-2">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="" class="btn btn-outline-dark ml-2">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="" class="btn btn-outline-dark ml-2">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+    </ui:define>
+
+</ui:composition>
